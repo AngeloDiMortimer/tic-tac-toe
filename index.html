@@ -9,9 +9,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <script src="./main.js" defer></script>
-    <title>Document</title>
+    <title>Tic Tac Toe</title>
 </head>
 <body>
     
+    <div class="win-msg hide" id="win-msg">
+        <p class="winner">The winner is...</p>
+        <p class="x-win hide" id="x-win">X</p>
+        <p class="o-win hide" id="o-win">O</p>
+        <p class="winner-draw hide" id="win-draw">It's a draw</p>
+    </div>
+
+    <div class="card">
+        <div class="item select">
+            <form class="form">
+                <select name="levels" id="levels">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                    <option value="insane">Insane</option>
+                </select>
+            </form>
+        </div>
+    </div>
+
+    <div class="item player">
+        <button class="btn-player x">X</button>
+        <button class="btn-player o">O</button>
+    </div>
+
+    <div class="item board">
+        <button class="box-play"><p></p></button>
+        <button class="box-play"><p></p></button>
+        <button class="box-play no-r"><p></p></button>
+        <button class="box-play"><p></p></button>
+        <button class="box-play"><p></p></button>
+        <button class="box-play no-r"><p></p></button>
+        <button class="box-play no-b"><p></p></button>
+        <button class="box-play no-b"><p></p></button>
+        <button class="box-play no-b no-r"><p></p></button>
+    </div>
+
+    <div class="item-reset">
+        <button class="btn restart">Restart</button>
+    </div>
+
+
 </body>
 </html>
