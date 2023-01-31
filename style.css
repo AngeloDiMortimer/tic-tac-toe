@@ -5,3 +5,114 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+body {
+    background: linear-gradient(to right, rgb(16, 185, 129), rgb(101, 163, 13));
+    color: #f4f4f4;
+    margin: 1rem;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.item {
+    margin: 1rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #f4f4f4;
+    border-radius: 16px;
+    width: 40%;
+    margin: auto;
+}
+
+select {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #f4f4f4;
+    font-weight: 500;
+    font-size: 19px;
+    border-bottom: 3px solid #f4f4f4;
+}
+
+option {
+    color: black;
+}
+
+.select {
+    align-self: flex-start;
+}
+
+.item.player {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+}
+
+.btn-player {
+    background-color: transparent;
+    color: #f4f4f4;
+    border-radius: 10px;
+    width: 15em;
+    height: 2.5em;
+    border: 2px solid #f4f4f4;
+    margin: 1em 1em 1em 1em;
+    font-weight: 700;
+}
+
+.btn-player:hover {
+    background-color: #f4f4f4;
+    color: black;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: 90px 90px 90px;
+    grid-template-rows: 90px 90px 90px;
+    justify-content: center;
+    width: 100%;
+    padding: 2em 0em;
+}
+
+.box-play {
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 54px;
+    color: #f4f4f4;
+    border: none;
+    border-bottom: 3px solid #f4f4f4;
+    border-right: 3px solid #f4f4f4;
+}
+
+.no-r {
+    border-right: none;
+}
+
+.no-b {
+    border-bottom: none;
+}
+
+.item-reset {
+    margin: 1em;
+}
+
+.btn.restart {
+    background-color: transparent;
+    color: #f4f4f4;
+    border: 2px solid #f4f4f4;
+    padding: 1em 2em;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 16px;
+}
+
+.btn.restart:hover {
+    background-color: #f4f4f4;
+    color: black;
+}
