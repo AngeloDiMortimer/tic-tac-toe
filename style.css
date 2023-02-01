@@ -73,14 +73,18 @@ option {
 
 .board {
     display: grid;
-    grid-template-columns: 90px 90px 90px;
-    grid-template-rows: 90px 90px 90px;
+    grid-template-columns: repeat(3, auto);
     justify-content: center;
     width: 100%;
     padding: 2em 0em;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
 }
 
 .box-play {
+    width: 90px;
+    height: 90px;
     background-color: transparent;
     font-weight: 600;
     font-size: 54px;
