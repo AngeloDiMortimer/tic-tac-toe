@@ -1,4 +1,5 @@
 const cellElements = document.querySelectorAll("[data-cell]");
+const restartBtn = document.getElementById("btn-restart");
 
 const winningComb = [
     /* Horizontal */
@@ -16,6 +17,7 @@ const winningComb = [
 const Xclass = "X";
 const Oclass = "O";
 let circleTurn; //Turn of the player
+
 
 const handleClick = (e) => {
     const cell = e.target;
@@ -44,7 +46,15 @@ const checkWin = (currentClass) => {
     })
 }
 
-cellElements.forEach(cell => {
-    cell.addEventListener("click", handleClick, { once: true });
-})
+const startGame = () => {
+    cellElements.forEach(cell => {
+        cell.classList.remove(Xclass);
+        cell.classList.remove(Oclass);
+        cell.textContent = "";
+        cell.removeEventListener("click", handleClick);
+        cell.addEventListener("click", handleClick, { once: true });
+    })
+}
 
+startGame();
+restartBtn.onclick = startGame;
