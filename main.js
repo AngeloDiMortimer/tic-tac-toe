@@ -1,7 +1,13 @@
 const cellElements = document.querySelectorAll("[data-cell]");
 const restartBtn = document.getElementById("btn-restart");
+const endGameMsg = document.getElementById("win-msg");
+const winnerMsg = document.getElementById("winner");
+const xWin = document.getElementById("x-win");
+const oWin = document.getElementById("o-win");
+const winDraw = document.getElementById("win-draw");
+const overlay = document.getElementById("overlay");
 
-const winningComb = [
+const winningComb = [ //Winning combinations
     /* Horizontal */
     [0, 1, 2],
     [3, 4, 5],
@@ -21,12 +27,44 @@ let circleTurn; //Turn of the player
 
 const handleClick = (e) => {
     const cell = e.target;
-    const currentClass = circleTurn ? Oclass : Xclass;
+    const currentClass = circleTurn ? Oclass : Xclass; //checks the current turn
     placeMark(cell, currentClass);
+    
     if (checkWin(currentClass)) {
-        console.log("winner");
+        endGame(false, currentClass);
+    } else if (isDraw()) {
+        endGame(true, currentClass)
+    } else {
+        swapTurns(); 
     }
-    swapTurns();
+}
+
+const endGame = (draw, currentClass) => {
+
+    if (draw) {
+
+        winnerMsg.classList.add("active");
+        winDraw.classList.add("active");
+        overlay.classList.add("active");
+
+    } else if (currentClass === Oclass) {
+
+        winnerMsg.classList.add("active");
+        oWin.classList.add("active");
+        overlay.classList.add("active");
+
+    } else if (currentClass === Xclass) {
+        winnerMsg.classList.add("active");
+        xWin.classList.add("active");
+        overlay.classList.add("active");
+    }
+}
+
+const isDraw = () => {
+    return [...cellElements].every(cell => {
+        return cell.classList.contains(Xclass) || 
+        cell.classList.contains(Oclass);
+    });
 }
 
 const placeMark = (cell, currentClass) => {
@@ -46,15 +84,32 @@ const checkWin = (currentClass) => {
     })
 }
 
+const resetAll = (cell) => {
+    cell.classList.remove(Xclass);
+    cell.classList.remove(Oclass);
+    cell.textContent = "";
+    winnerMsg.classList.remove("active");
+    xWin.classList.remove("active");
+    oWin.classList.remove("active");
+    winDraw.classList.remove("active");
+    overlay.classList.remove("active");
+}
+
 const startGame = () => {
     cellElements.forEach(cell => {
-        cell.classList.remove(Xclass);
-        cell.classList.remove(Oclass);
-        cell.textContent = "";
+        /* Clears everything before starting */
+        resetAll(cell);
         cell.removeEventListener("click", handleClick);
+        
+        /* Puts either an X or O inside a cell */
         cell.addEventListener("click", handleClick, { once: true });
     })
 }
 
 startGame();
 restartBtn.onclick = startGame;
+endGameMsg.onclick = startGame;
+overlay.onclick = startGame;
+
+//check for a draw and display end message
+//make it so it's possible to play against an AI
