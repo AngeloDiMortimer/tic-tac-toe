@@ -107,7 +107,7 @@ button:hover {
     justify-content: center;
 }
 
-.div-player:hover {
+.div-player.active {
     background-color: #f4f4f4;
     color: black;
 }

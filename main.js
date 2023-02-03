@@ -1,5 +1,7 @@
 const cellElements = document.querySelectorAll("[data-cell]");
 const restartBtn = document.getElementById("btn-restart");
+const playerX = document.getElementById("player-x");
+const playerO = document.getElementById("player-o");
 const endGameMsg = document.getElementById("win-msg");
 const winnerMsg = document.getElementById("winner");
 const xWin = document.getElementById("x-win");
@@ -43,7 +45,7 @@ const endGame = (draw, currentClass) => {
 
     if (draw) {
 
-        winnerMsg.classList.add("active");
+        
         winDraw.classList.add("active");
         overlay.classList.add("active");
 
@@ -74,6 +76,8 @@ const placeMark = (cell, currentClass) => {
 
 const swapTurns = () => {
     circleTurn = !circleTurn;
+    circleTurn ? (playerO.classList.add("active"), playerX.classList.remove("active")) :
+    (playerX.classList.add("active"), playerO.classList.remove("active"));
 }
 
 const checkWin = (currentClass) => {
@@ -93,6 +97,8 @@ const resetAll = (cell) => {
     oWin.classList.remove("active");
     winDraw.classList.remove("active");
     overlay.classList.remove("active");
+    playerX.classList.remove("active");
+    playerO.classList.remove("active");
 }
 
 const startGame = () => {
